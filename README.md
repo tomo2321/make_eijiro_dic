@@ -49,6 +49,15 @@ cd make_eijiro_dic
 rm MyDictionary.xml; ruby eiji_conv.rb < eijiro-utf8.txt > MyDictionary.xml
 ```
 
+# 辞書の抜け漏れ確認
+
+以下のコマンドで、作成した辞書内の見出し語の抜け漏れを確認をすることができます。
+
+```
+cd make_eijiro_dic
+python3 scripts/check_missing_headwords.py eijiro-utf8.txt MyDictionary.xml
+```
+
 # 英辞郎.dictionary の作成とインストール
 
 Makefile のパスを各環境に合わせて変更してから実行してください。
