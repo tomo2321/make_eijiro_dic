@@ -1,8 +1,6 @@
-#
-# Makefile
-#
-#
-#
+# Makefile for building and installing
+
+.DEFAULT_GOAL := all
 
 ###########################
 
@@ -22,7 +20,7 @@ DICT_BUILD_OPTS		=
 # The DICT_BUILD_TOOL_DIR value is used also in "build_dict.sh" script.
 # You need to set it when you invoke the script directly.
 
-DICT_BUILD_TOOL_DIR	=	"~/workspace/Dictionary Development Kit"
+DICT_BUILD_TOOL_DIR	=	"$(HOME)/ws/Dictionary Development Kit"
 DICT_BUILD_TOOL_BIN	=	"$(DICT_BUILD_TOOL_DIR)/bin"
 
 ###########################
@@ -39,9 +37,8 @@ all:
 	"$(DICT_BUILD_TOOL_BIN)/build_dict.sh" $(DICT_BUILD_OPTS) $(DICT_NAME) $(DICT_SRC_PATH) $(CSS_PATH) $(PLIST_PATH)
 	echo "Done."
 
-
 install:
-	echo "Installing into $(DESTINATION_FOLDER)".
+	echo "Installing into $(DESTINATION_FOLDER)."
 	mkdir -p $(DESTINATION_FOLDER)
 	ditto --noextattr --norsrc $(DICT_DEV_KIT_OBJ_DIR)/$(DICT_NAME).dictionary  $(DESTINATION_FOLDER)/$(DICT_NAME).dictionary
 	touch $(DESTINATION_FOLDER)

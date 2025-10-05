@@ -9,17 +9,14 @@
 # 事前準備
 
 - [英辞郎の辞書を購入](https://booth.pm/ja/items/777563)
-- ruby (自分は`2.3.6`で実行しております。)
-- Xcode11
+- ruby (`2.6.10`で動作確認)
+- Xcode 26
 
-# Auxiliary Tools for Xcode のインストール
+# Additional Tools for Xcode 26 のインストール
 
-Xcode11 では、Additional Tools for Xcode 11 に統合されております。
+https://developer.apple.com/download/all/ より DL してください。
 
-https://developer.apple.com/download/more/
-より DL してください。
-
-![](doc/images/additional_tools.png)
+<img src="doc/images/additional_tools.png" width="500px">
 
 DL したファイルから、`Dictionary Development Kit` を探して任意の Dir にコピーしてください。※1
 
@@ -42,7 +39,7 @@ nkf -w --cp932 英辞郎.txt > eijiro-utf8.txt
 # 辞書作成手順
 
 eijiro-utf8.txt を make_eijiro_dic 配下にコピーして以下のコマンドを実行してください。
-※ MacBook Pro (2016)で 20 分弱
+※ M2 Mac mini (2023)で 2 分弱
 
 ```
 cd make_eijiro_dic
@@ -61,12 +58,15 @@ python3 scripts/check_missing_headwords.py eijiro-utf8.txt MyDictionary.xml
 # 英辞郎.dictionary の作成とインストール
 
 Makefile のパスを各環境に合わせて変更してから実行してください。
-※ MacBook Pro (2016)で 8 時間弱
+※ M2 Mac mini (2023)で 20 分弱
 
 ```
 cd make_eijiro_dic
 make; make install
 ```
+
+辞書の見出し語が長すぎるものについて、`make install`実行時に、処理がスキップされてしまいます。
+スキップされた見出し語の詳細については、[error.log](./doc/logs/error.log)を参照してください。
 
 # 辞書の適用
 

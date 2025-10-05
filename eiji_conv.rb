@@ -1,10 +1,7 @@
 #! ruby -Ku
 # -*- mode:ruby; coding:utf-8 -*
-# 英辞郎の英和辞書をMac OS X v10.5 "Leopard"の辞書アプリケーション（Dictionary.app）用に変換
-# v0.09 by Tats_y (http://www.binword.com/blog/)
-# 2011/04/10
+# 英辞郎の辞書テキストファイルからXMLファイルに変換するスクリプト
 
-require 'iconv'
 require 'cgi'
 
 word_index = Hash.new
